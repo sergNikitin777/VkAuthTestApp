@@ -25,15 +25,6 @@
             android:layout_marginBottom="5dp"/>
 
         <Button
-            android:id="@+id/friendListButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Список друзей"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="33dp"
-            android:layout_marginBottom="5dp"/>
-
-        <Button
             android:id="@+id/logoutButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -41,5 +32,14 @@
             tools:layout_editor_absoluteX="75dp"
             tools:layout_editor_absoluteY="33dp"
             android:layout_marginBottom="5dp"/>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/lvlitems"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

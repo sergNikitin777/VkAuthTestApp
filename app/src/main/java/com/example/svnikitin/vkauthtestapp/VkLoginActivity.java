@@ -39,7 +39,7 @@ public class VkLoginActivity extends Activity {
         //Чтобы получать уведомления об окончании загрузки страницы
         webview.setWebViewClient(new VkWebViewClient());
 
-        String url = "http://oauth.vk.com/authorize?client_id=" + Settings.vk_api_id + "&scope=wall,offline&redirect_uri=" + URLEncoder.encode(Settings.vk_redirect_url) + "&response_type=token";
+        String url = "http://oauth.vk.com/authorize?client_id=" + AppConstats.vk_api_id + "&scope=wall,offline&redirect_uri=" + URLEncoder.encode(AppConstats.vk_redirect_url) + "&response_type=token";
         webview.loadUrl(url);
         webview.setVisibility(View.VISIBLE);
 
@@ -68,7 +68,7 @@ public class VkLoginActivity extends Activity {
             if (url == null) {
                 return;
             }
-            if (url.startsWith(Settings.vk_redirect_url)) {
+            if (url.startsWith(AppConstats.vk_redirect_url)) {
                 if (!url.contains("error")) {
                     String[] auth = VKUtil.parseRedirectUrl(url);
                     webview.setVisibility(View.GONE);
@@ -88,7 +88,7 @@ public class VkLoginActivity extends Activity {
                     finish();
                 }
 
-            } else if (url.startsWith(Settings.vk_grant_access_url)) {
+            } else if (url.startsWith(AppConstats.vk_grant_access_url)) {
                 if (!url.contains("error")) {
                     String[] auth = VKUtil.parseRedirectUrlHash(url);
 
