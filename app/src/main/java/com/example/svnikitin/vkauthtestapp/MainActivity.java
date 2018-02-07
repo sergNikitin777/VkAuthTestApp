@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     public void loadFriends() throws JSONException {
         JSONParser jsonParser = new JSONParser();
 
-        JSONObject jsonObject = jsonParser.getJSONFromUrl("https://api.vk.com/method/friends.get?user_id="+uid+"&order=name&count=10&fields=domain,sex,bdate,city,country,timezone,photo_50");
+        JSONObject jsonObject = jsonParser.getJSONFromUrl("https://api.vk.com/method/friends.get?user_id="+uid+"&order=name&fields=domain,sex,bdate,city,country,timezone,photo_50");
         //JSONObject jsonObject = jsonParser.getJSONFromUrl("https://api.vk.com/method/friends.get?user_id=168934373&order=name&count=10&fields=domain,sex,bdate,city,country,timezone,photo_50");
 
         Log.i("jsonObject", jsonObject.toString());
