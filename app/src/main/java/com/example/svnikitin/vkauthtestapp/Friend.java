@@ -8,12 +8,14 @@ public class Friend {
     private int id;
     private String firstName;
     private String lastName;
+    private String imageLink;
 
     public Friend(){
     }
-    public Friend(String first_name, String lastName) {
+    public Friend(String first_name, String lastName, String imageLink) {
         this.firstName = first_name;
         this.lastName = lastName;
+        this.imageLink = imageLink;
     }
 
     public int getId() {
@@ -39,5 +41,13 @@ public class Friend {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 }

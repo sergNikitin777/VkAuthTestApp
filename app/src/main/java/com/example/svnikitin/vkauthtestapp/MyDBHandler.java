@@ -13,12 +13,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyDBHandler extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "friends.db";
     public static final String TABLE_FRIENDS = "friends";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_FIRST_NAME = "first_name";
     public static final String COLUMN_LAST_NAME = "last_name";
+    public static final String COLUMN_IMAGE_URL = "image_url";
 
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -30,7 +31,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_FRIENDS + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_FIRST_NAME + " TEXT, " +
-                COLUMN_LAST_NAME + " TEXT " +
+                COLUMN_LAST_NAME + " TEXT, " +
+                COLUMN_IMAGE_URL + " TEXT " +
                 ");";
 
         db.execSQL(query);
@@ -50,6 +52,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_FIRST_NAME, friend.getFirstName());
         values.put(COLUMN_LAST_NAME, friend.getLastName());
+        values.put(COLUMN_IMAGE_URL, friend.getImageLink());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_FRIENDS, null, values);
         db.close();
@@ -60,6 +63,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_FIRST_NAME, friend.getFirstName());
         values.put(COLUMN_LAST_NAME, friend.getLastName());
+        values.put(COLUMN_IMAGE_URL, friend.getImageLink());
         SQLiteDatabase db = getWritableDatabase();
         db.update(TABLE_FRIENDS, values, COLUMN_ID + "= ?", new String[] { String.valueOf(friend.getId())});
         db.close();
