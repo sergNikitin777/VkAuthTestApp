@@ -31,14 +31,14 @@ public class TodoCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         // Find fields to populate in inflated template
-        TextView tvBody = (TextView) view.findViewById(R.id.first_name);
-        TextView tvPriority = (TextView) view.findViewById(R.id.last_name);
+        TextView tvFirstName = (TextView) view.findViewById(R.id.first_name);
+        TextView tvLastName = (TextView) view.findViewById(R.id.last_name);
         // Extract properties from cursor
-        String body = cursor.getString(cursor.getColumnIndexOrThrow("first_name"));
-        int priority = cursor.getInt(cursor.getColumnIndexOrThrow("last_name"));
+        String strFirstName = cursor.getString(cursor.getColumnIndexOrThrow("first_name"));
+        String strLastName = cursor.getString(cursor.getColumnIndexOrThrow("last_name"));
         // Populate fields with extracted properties
-        tvBody.setText(body);
-        tvPriority.setText(String.valueOf(priority));
+        tvFirstName.setText(strFirstName);
+        tvLastName.setText(strLastName);
     }
 }
 
