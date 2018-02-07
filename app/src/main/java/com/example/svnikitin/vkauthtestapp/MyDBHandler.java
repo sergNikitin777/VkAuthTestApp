@@ -45,7 +45,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    //Añade un nuevo Row a la Base de Datos
+    //Добавление новой записи
 
     public void addFriend(Friend friend) {
 
@@ -70,7 +70,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     }
 
-    // Borrar una persona de la Base de Datos
+    // Удаление записи по идентификатору
 
     public void removeFriend(int persona_id){
         SQLiteDatabase db = getWritableDatabase();
@@ -78,7 +78,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    //listar por id
+    // Получение записи по идентификатору
 
     public Cursor getFriendById(int id){
         SQLiteDatabase db = getWritableDatabase();
@@ -92,7 +92,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return c;
     }
 
-    //listar a todas las personas
+    // Получаем список всех записей
+
     public Cursor getFriendList(){
         SQLiteDatabase db = getReadableDatabase();
         String query = ("SELECT * FROM " + TABLE_FRIENDS + " WHERE 1 ORDER BY " + COLUMN_LAST_NAME + ";");
