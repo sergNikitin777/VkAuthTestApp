@@ -9,18 +9,22 @@ import android.content.Context;
 import java.io.File;
 
 public class FileCache {
+
+	public static final String DOWNLOAD_VKAUTHTESTAPP = "/Download/vkauthtestapp/";
+	public static final String LAZY_LIST = "LazyList";
+
 	private File cacheDir;
 
 	public FileCache(Context context, String subDir) {
 		//Find the dir to save cached images
 		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
 			if (subDir != null) {
-				cacheDir = new File(android.os.Environment.getExternalStorageDirectory() + "/Download/splayer/" + subDir, "LazyList");
+				cacheDir = new File(android.os.Environment.getExternalStorageDirectory() + DOWNLOAD_VKAUTHTESTAPP + subDir, LAZY_LIST);
 			} else {
-				cacheDir = new File(android.os.Environment.getExternalStorageDirectory() + "/Download/splayer/", "LazyList");
+				cacheDir = new File(android.os.Environment.getExternalStorageDirectory() + DOWNLOAD_VKAUTHTESTAPP, LAZY_LIST);
 			}
 		else {
-			cacheDir = new File(context.getCacheDir().getAbsolutePath() + "/Download/splayer/" + subDir + "/");
+			cacheDir = new File(context.getCacheDir().getAbsolutePath() + DOWNLOAD_VKAUTHTESTAPP + subDir + "/");
 		}
 		if (!cacheDir.exists()) {
 			cacheDir.mkdirs();

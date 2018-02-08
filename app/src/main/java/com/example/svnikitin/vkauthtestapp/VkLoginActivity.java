@@ -28,8 +28,8 @@ public class VkLoginActivity extends Activity {
         setContentView(R.layout.webview);
 
         //Получаем элементы
-        webview = (WebView) findViewById(R.id.web);
-        progress = (ProgressBar) findViewById(R.id.progress);
+        webview = findViewById(R.id.web);
+        progress = findViewById(R.id.progress);
 
         webview.getSettings().setJavaScriptEnabled(true);
         webview.setVerticalScrollBarEnabled(false);
