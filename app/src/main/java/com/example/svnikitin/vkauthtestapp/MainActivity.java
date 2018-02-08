@@ -118,8 +118,11 @@ public class MainActivity extends AppCompatActivity {
 
                 JSONObject object = jsonArray.getJSONObject(n);
                 Log.i("friend : ",object.toString());
-                Friend friend = new Friend(object.getString("first_name"),object.getString("last_name"),object.getString("photo_50"));
-                dbHandler.addFriend(friend);
+
+                if (!object.toString().contains("deleted")&& !object.toString().contains("DELETED")) {
+                    Friend friend = new Friend(object.getString("first_name"), object.getString("last_name"), object.getString("photo_50"));
+                    dbHandler.addFriend(friend);
+                }
 
             }
         }
